@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ironwood Remodeling Co. | Renovations Built to Last</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">IRONWOOD</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <span class="phone-num">1-800-555-0198</span>
+                <a href="#contact" class="btn btn-outline">Get a Free Quote</a>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Renovations That Redefine Your Home</h1>
+                <p>Meticulous craftsmanship and a white-glove client experience for discerning homeowners.</p>
+                <a href="#contact" class="btn">Book Your Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Slider -->
+    <section class="section section-light" id="transformation">
+        <div class="container">
+            <h2 class="text-center fade-in">Experience the Transformation</h2>
+            <p class="text-center fade-in" style="margin-bottom: 3rem;">Drag to compare a recent kitchen remodel.</p>
+            
+            <div class="ba-container fade-in" id="ba-container">
+                <!-- After Image (Background) -->
+                <img src="after.jpg" alt="Renovated Modern Kitchen" class="ba-image ba-after">
+                
+                <!-- Before Image (Foreground overlay) -->
+                <img src="before.jpg" alt="Outdated Kitchen" class="ba-image ba-before" id="ba-before">
+                
+                <!-- Slider Handle -->
+                <div class="ba-slider" id="ba-slider"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+        <div class="container fade-in">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✦</div>
+                    <h3>Kitchen Remodeling</h3>
+                    <p>Bespoke culinary spaces designed for entertaining, cooking, and everyday luxury.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✦</div>
+                    <h3>Bathroom Renovation</h3>
+                    <p>Spa-like retreats featuring custom vanities, premium fixtures, and elegant tilework.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✦</div>
+                    <h3>Whole-Home Renovation</h3>
+                    <p>Comprehensive transformations that modernize and elevate your entire living space.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✦</div>
+                    <h3>Outdoor & Decks</h3>
+                    <p>Seamless indoor-outdoor living extensions built for year-round enjoyment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section class="section section-light" id="portfolio">
+        <div class="container fade-in">
+            <h2 class="text-center">Featured Projects</h2>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="kitchen">Kitchens</button>
+                <button class="filter-btn" data-filter="bathroom">Bathrooms</button>
+                <button class="filter-btn" data-filter="exterior">Exteriors</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="bathroom">
+                    <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80" alt="Custom bathroom remodel" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-title">Primary Suite Retreat</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="kitchen">
+                    <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80" alt="Kitchen island design" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-title">Modern Culinary Island</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="exterior">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Home addition exterior" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-title">Estate Expansion</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="bathroom">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Luxury bathroom renovation" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-title">Marble Master Bath</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="exterior">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Modern home exterior renovation" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-title">Contemporary Facade</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="bathroom">
+                    <img src="vanity_detail.jpg" alt="Custom vanity detail" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-title">Bespoke Vanity Detail</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <img src="" alt="Enlarged project view" id="lightbox-img">
+    </div>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar" id="about">
+        <div class="container">
+            <div class="stats-grid fade-in">
+                <div>
+                    <div class="stat-number" data-target="18">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="75" data-prefix="$" data-suffix="K+">0</div>
+                    <div class="stat-label">Avg. Project Value</div>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="5.0" data-decimals="1" data-suffix="★">0.0</div>
+                    <div class="stat-label">Client Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section">
+        <div class="container fade-in">
+            <h2 class="text-center">Our Process</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-num">01</div>
+                    <h3>Consultation</h3>
+                    <p>We listen to your vision and establish project parameters.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">02</div>
+                    <h3>Design</h3>
+                    <p>Our team crafts detailed architectural and interior plans.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">03</div>
+                    <h3>Build</h3>
+                    <p>Master tradesmen execute the design with precision.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">04</div>
+                    <h3>Reveal</h3>
+                    <p>We hand over your beautifully transformed space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-light">
+        <div class="container fade-in">
+            <h2 class="text-center">Client Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">Ironwood transformed our outdated first floor into a bright, modern masterpiece. Their attention to detail and communication throughout the build was unmatched.</p>
+                    <p class="testimonial-author">— Homeowner, Denver, CO</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">From the initial design phase to the final walkthrough, the team was professional and respectful of our home. The custom kitchen cabinetry exceeded our expectations.</p>
+                    <p class="testimonial-author">— Homeowner, Boulder, CO</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">Finding a contractor you can trust is difficult, but Ironwood delivered on every promise. Our primary bathroom is now our favorite room in the house.</p>
+                    <p class="testimonial-author">— Homeowner, Cherry Creek, CO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Final CTA -->
+    <section class="section" id="contact">
+        <div class="container fade-in">
+            <div class="contact-container">
+                <div>
+                    <h2>Ready to elevate your home?</h2>
+                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Reach out today to schedule your complimentary consultation and discuss your upcoming project.</p>
+                    <p style="margin-bottom: 1rem;"><strong>Email:</strong> info@ironwoodremodeling.com</p>
+                    <p style="margin-bottom: 1rem;"><strong>Phone:</strong> 1-800-555-0198</p>
+                    <p><strong>Service Area:</strong> Premium residential neighborhoods nationwide.</p>
+                </div>
+                <div>
+                    <form id="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your interest. This is a demo form.');">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required style="background-color: var(--color-bg);">
+                                <option value="" disabled selected>Project Type</option>
+                                <option value="kitchen">Kitchen Remodel</option>
+                                <option value="bathroom">Bathroom Remodel</option>
+                                <option value="whole-home">Whole-Home Renovation</option>
+                                <option value="exterior">Exterior / Addition</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tell us about your vision..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-outline" style="width: 100%;">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <div class="footer-logo">IRONWOOD</div>
+                <p>Renovations Built to Last a Lifetime</p>
+            </div>
+            <div>
+                <p>&copy; 2026 Ironwood Remodeling Co. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>
