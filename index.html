@@ -1,292 +1,377 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ironwood Remodeling Co. | Renovations Built to Last</title>
+    <title>Aurelia Fine Jewelry | Timeless Elegance</title>
+    <meta name="description" content="A high-end fine jewelry brand serving discerning clients. Timeless Elegance, Crafted for You.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Custom CSS -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1A1D1F',
+                            accent: '#D4AF37',
+                            light: '#F9F8F6',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bg-brand-dark text-brand-light font-sans antialiased overflow-x-hidden">
 
     <!-- Sticky Header -->
-    <header class="header" id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">IRONWOOD</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+    <header class="fixed w-full top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-accent/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-3xl font-serif font-semibold tracking-wide text-brand-accent relative z-20">Aurelia</a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+                <a href="#collections" class="hover:text-brand-accent transition-colors">Collections</a>
+                <a href="#bespoke" class="hover:text-brand-accent transition-colors">Bespoke</a>
+                <a href="#craftsmanship" class="hover:text-brand-accent transition-colors">About</a>
+                <a href="#contact" class="hover:text-brand-accent transition-colors">Contact</a>
             </nav>
-            <div class="header-cta">
-                <span class="phone-num">1-800-555-0198</span>
-                <a href="#contact" class="btn btn-outline">Get a Free Quote</a>
-                <button class="mobile-menu-btn">☰</button>
+
+            <div class="flex items-center space-x-5 relative z-20">
+                <button class="hover:text-brand-accent transition-colors" aria-label="Shopping Bag">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                </button>
+                <a href="#contact" class="hidden sm:inline-block bg-brand-accent text-brand-dark px-6 py-2.5 text-xs font-medium tracking-wide uppercase hover:bg-white transition-colors duration-300">
+                    Book an Appointment
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden flex items-center text-brand-light hover:text-brand-accent transition-colors" aria-label="Toggle Menu">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-dark flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-opacity duration-300 z-10 md:hidden">
+            <a href="#collections" class="mobile-link text-2xl font-serif uppercase tracking-widest hover:text-brand-accent transition-colors">Collections</a>
+            <a href="#bespoke" class="mobile-link text-2xl font-serif uppercase tracking-widest hover:text-brand-accent transition-colors">Bespoke</a>
+            <a href="#craftsmanship" class="mobile-link text-2xl font-serif uppercase tracking-widest hover:text-brand-accent transition-colors">About</a>
+            <a href="#contact" class="mobile-link text-2xl font-serif uppercase tracking-widest hover:text-brand-accent transition-colors">Contact</a>
+            <a href="#contact" class="mobile-link mt-8 bg-brand-accent text-brand-dark px-8 py-3 text-sm font-medium tracking-wide uppercase hover:bg-white transition-colors duration-300">
+                Book an Appointment
+            </a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero fade-in">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>Renovations That Redefine Your Home</h1>
-                <p>Meticulous craftsmanship and a white-glove client experience for discerning homeowners.</p>
-                <a href="#contact" class="btn">Book Your Free Consultation</a>
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Hero image loaded eagerly -->
+            <img src="https://images.unsplash.com/photo-1548950939-629ecb4d7101?q=80&w=2000&auto=format&fit=crop" alt="Fine Jewelry Lifestyle" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-transparent to-brand-dark"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto hero-fade-in opacity-0 translate-y-8">
+            <h1 class="text-5xl md:text-7xl font-serif font-medium mb-6 text-white leading-tight">Adorn Yourself in <br/><span class="text-brand-accent italic">Timeless Elegance</span></h1>
+            <p class="text-lg md:text-xl text-gray-300 font-light mb-10 max-w-2xl mx-auto">Ethically sourced diamonds and master craftsmanship for the discerning collector.</p>
+            <a href="#collections" class="inline-block border border-brand-accent text-brand-accent px-8 py-4 text-sm font-medium tracking-widest uppercase hover:bg-brand-accent hover:text-brand-dark transition-all duration-300">
+                Explore the Collection
+            </a>
+        </div>
+    </section>
+
+    <!-- Craftsmanship & Sourcing -->
+    <section id="craftsmanship" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2 reveal-left opacity-0">
+                <img src="https://images.unsplash.com/photo-1589363357779-0cad84c44c07?q=80&w=1200&auto=format&fit=crop" loading="lazy" alt="Jewelry Craftsmanship" class="w-full h-auto object-cover aspect-[4/5] shadow-2xl">
+            </div>
+            <div class="w-full md:w-1/2 reveal-right opacity-0">
+                <h2 class="text-4xl font-serif mb-6 text-brand-accent">Uncompromising Craftsmanship</h2>
+                <p class="text-gray-300 font-light mb-6 text-lg leading-relaxed">
+                    Every Aurelia piece begins its journey with conflict-free, ethically sourced stones. Our master artisans blend centuries-old techniques with modern precision to bring unparalleled brilliance to life.
+                </p>
+                <p class="text-gray-400 font-light mb-10 leading-relaxed">
+                    From the initial sketch to the final polish, we ensure that every facet reflects our commitment to sustainability and timeless beauty.
+                </p>
+                <a href="#bespoke" class="text-brand-accent border-b border-brand-accent pb-1 uppercase tracking-widest text-sm hover:text-white hover:border-white transition-colors">Discover Our Process</a>
             </div>
         </div>
     </section>
 
-    <!-- Before & After Slider -->
-    <section class="section section-light" id="transformation">
-        <div class="container">
-            <h2 class="text-center fade-in">Experience the Transformation</h2>
-            <p class="text-center fade-in" style="margin-bottom: 3rem;">Drag to compare a recent kitchen remodel.</p>
+    <!-- Featured Collections -->
+    <section id="collections" class="py-24 bg-[#141618]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up opacity-0">
+                <h2 class="text-4xl font-serif text-brand-accent mb-4">Curated Collections</h2>
+                <p class="text-gray-400 font-light">Explore our signature designs, crafted to be passed down through generations.</p>
+            </div>
             
-            <div class="ba-container fade-in" id="ba-container">
-                <!-- After Image (Background) -->
-                <img src="after.jpg" alt="Renovated Modern Kitchen" class="ba-image ba-after">
-                
-                <!-- Before Image (Foreground overlay) -->
-                <img src="before.jpg" alt="Outdated Kitchen" class="ba-image ba-before" id="ba-before">
-                
-                <!-- Slider Handle -->
-                <div class="ba-slider" id="ba-slider"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section class="section" id="services">
-        <div class="container fade-in">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">✦</div>
-                    <h3>Kitchen Remodeling</h3>
-                    <p>Bespoke culinary spaces designed for entertaining, cooking, and everyday luxury.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="group cursor-pointer reveal-up opacity-0 delay-100">
+                    <div class="overflow-hidden aspect-[3/4] mb-4">
+                        <img src="https://images.unsplash.com/photo-1513497477725-6042091800a9?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Engagement Rings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <h3 class="text-xl font-serif text-white mb-2">Engagement</h3>
+                    <p class="text-sm text-gray-400 font-light">Symbolize your forever with our bespoke rings.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">✦</div>
-                    <h3>Bathroom Renovation</h3>
-                    <p>Spa-like retreats featuring custom vanities, premium fixtures, and elegant tilework.</p>
+                <!-- Card 2 -->
+                <div class="group cursor-pointer reveal-up opacity-0 delay-200">
+                    <div class="overflow-hidden aspect-[3/4] mb-4">
+                        <img src="https://images.unsplash.com/photo-1583228888368-d9cc94613a36?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Fine Jewelry" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <h3 class="text-xl font-serif text-white mb-2">Fine Jewelry</h3>
+                    <p class="text-sm text-gray-400 font-light">Everyday elegance in gold and diamonds.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">✦</div>
-                    <h3>Whole-Home Renovation</h3>
-                    <p>Comprehensive transformations that modernize and elevate your entire living space.</p>
+                <!-- Card 3 -->
+                <div class="group cursor-pointer reveal-up opacity-0 delay-300">
+                    <div class="overflow-hidden aspect-[3/4] mb-4">
+                        <img src="https://images.unsplash.com/photo-1523508685883-61bd1ef9ceaa?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Timepieces" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <h3 class="text-xl font-serif text-white mb-2">Timepieces</h3>
+                    <p class="text-sm text-gray-400 font-light">Precision engineering meets luxury design.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">✦</div>
-                    <h3>Outdoor & Decks</h3>
-                    <p>Seamless indoor-outdoor living extensions built for year-round enjoyment.</p>
+                <!-- Card 4 -->
+                <div class="group cursor-pointer reveal-up opacity-0 delay-400">
+                    <div class="overflow-hidden aspect-[3/4] mb-4">
+                        <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Bespoke Design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <h3 class="text-xl font-serif text-white mb-2">Bespoke Design</h3>
+                    <p class="text-sm text-gray-400 font-light">Bring your unique vision to reality.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Gallery -->
-    <section class="section section-light" id="portfolio">
-        <div class="container fade-in">
-            <h2 class="text-center">Featured Projects</h2>
-            
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="kitchen">Kitchens</button>
-                <button class="filter-btn" data-filter="bathroom">Bathrooms</button>
-                <button class="filter-btn" data-filter="exterior">Exteriors</button>
+    <!-- Product Gallery -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-12 reveal-up opacity-0">
+            <h2 class="text-4xl font-serif text-brand-accent mb-8">The Gallery</h2>
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-6 text-sm uppercase tracking-widest font-medium">
+                <button class="text-brand-accent border-b border-brand-accent pb-1 filter-btn" data-filter="all">All</button>
+                <button class="text-gray-500 hover:text-white transition-colors pb-1 filter-btn" data-filter="rings">Rings</button>
+                <button class="text-gray-500 hover:text-white transition-colors pb-1 filter-btn" data-filter="necklaces">Necklaces</button>
+                <button class="text-gray-500 hover:text-white transition-colors pb-1 filter-btn" data-filter="earrings">Earrings</button>
+                <button class="text-gray-500 hover:text-white transition-colors pb-1 filter-btn" data-filter="bracelets">Bracelets</button>
             </div>
+        </div>
 
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="bathroom">
-                    <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80" alt="Custom bathroom remodel" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-title">Primary Suite Retreat</span>
-                    </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4" id="gallery-grid">
+            <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-up opacity-0" data-category="rings">
+                <img src="https://images.unsplash.com/photo-1661459406826-2b7f268e7c08?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Gallery Ring" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white uppercase tracking-widest text-sm border border-white px-4 py-2">View</span>
                 </div>
-                <div class="portfolio-item" data-category="kitchen">
-                    <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80" alt="Kitchen island design" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-title">Modern Culinary Island</span>
-                    </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-up opacity-0 delay-100" data-category="necklaces">
+                <img src="https://images.unsplash.com/photo-1559137771-536eecb999ab?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Gallery Necklace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white uppercase tracking-widest text-sm border border-white px-4 py-2">View</span>
                 </div>
-                <div class="portfolio-item" data-category="exterior">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Home addition exterior" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-title">Estate Expansion</span>
-                    </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-up opacity-0 delay-200" data-category="earrings">
+                <img src="https://images.unsplash.com/photo-1490476323407-63a2b2baa393?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Gallery Earrings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white uppercase tracking-widest text-sm border border-white px-4 py-2">View</span>
                 </div>
-                <div class="portfolio-item" data-category="bathroom">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Luxury bathroom renovation" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-title">Marble Master Bath</span>
-                    </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-up opacity-0 delay-300" data-category="bracelets">
+                <img src="https://images.unsplash.com/photo-1548950939-629ecb4d7101?q=80&w=800&auto=format&fit=crop&crop=entropy" loading="lazy" alt="Gallery Bracelet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white uppercase tracking-widest text-sm border border-white px-4 py-2">View</span>
                 </div>
-                <div class="portfolio-item" data-category="exterior">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Modern home exterior renovation" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-title">Contemporary Facade</span>
-                    </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-up opacity-0" data-category="rings">
+                <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Gallery Ring 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white uppercase tracking-widest text-sm border border-white px-4 py-2">View</span>
                 </div>
-                <div class="portfolio-item" data-category="bathroom">
-                    <img src="vanity_detail.jpg" alt="Custom vanity detail" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-title">Bespoke Vanity Detail</span>
-                    </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-up opacity-0 delay-100" data-category="necklaces">
+                <img src="https://images.unsplash.com/photo-1583228888368-d9cc94613a36?q=80&w=800&auto=format&fit=crop&crop=entropy" loading="lazy" alt="Gallery Necklace 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white uppercase tracking-widest text-sm border border-white px-4 py-2">View</span>
+                </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-up opacity-0 delay-200" data-category="rings">
+                <img src="https://images.unsplash.com/photo-1513497477725-6042091800a9?q=80&w=800&auto=format&fit=crop&crop=bottom" loading="lazy" alt="Gallery Ring 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white uppercase tracking-widest text-sm border border-white px-4 py-2">View</span>
+                </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-up opacity-0 delay-300" data-category="bracelets">
+                <img src="https://images.unsplash.com/photo-1523508685883-61bd1ef9ceaa?q=80&w=800&auto=format&fit=crop&crop=left" loading="lazy" alt="Gallery Bracelet 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white uppercase tracking-widest text-sm border border-white px-4 py-2">View</span>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightbox-close">&times;</button>
-        <img src="" alt="Enlarged project view" id="lightbox-img">
-    </div>
 
     <!-- Trust Bar -->
-    <section class="trust-bar" id="about">
-        <div class="container">
-            <div class="stats-grid fade-in">
-                <div>
-                    <div class="stat-number" data-target="18">0</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div>
-                    <div class="stat-number" data-target="500">0</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div>
-                    <div class="stat-number" data-target="75" data-prefix="$" data-suffix="K+">0</div>
-                    <div class="stat-label">Avg. Project Value</div>
-                </div>
-                <div>
-                    <div class="stat-number" data-target="5.0" data-decimals="1" data-suffix="★">0.0</div>
-                    <div class="stat-label">Client Rating</div>
-                </div>
+    <section class="border-y border-brand-accent/20 bg-[#141618] py-16">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-brand-accent/20">
+            <div class="reveal-up opacity-0">
+                <div class="text-4xl font-serif text-brand-accent mb-2"><span class="counter" data-target="20">0</span>+</div>
+                <div class="text-xs uppercase tracking-widest text-gray-400">Years of Excellence</div>
+            </div>
+            <div class="reveal-up opacity-0 delay-100">
+                <div class="text-4xl font-serif text-brand-accent mb-2"><span class="counter" data-target="100">0</span>%</div>
+                <div class="text-xs uppercase tracking-widest text-gray-400">Ethically Sourced</div>
+            </div>
+            <div class="reveal-up opacity-0 delay-200">
+                <div class="text-4xl font-serif text-brand-accent mb-2">Lifetime</div>
+                <div class="text-xs uppercase tracking-widest text-gray-400">Warranty</div>
+            </div>
+            <div class="reveal-up opacity-0 delay-300">
+                <div class="text-4xl font-serif text-brand-accent mb-2"><span class="counter" data-target="5.0">0.0</span>★</div>
+                <div class="text-xs uppercase tracking-widest text-gray-400">Client Rating</div>
             </div>
         </div>
     </section>
 
-    <!-- Process -->
-    <section class="section">
-        <div class="container fade-in">
-            <h2 class="text-center">Our Process</h2>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-num">01</div>
-                    <h3>Consultation</h3>
-                    <p>We listen to your vision and establish project parameters.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-num">02</div>
-                    <h3>Design</h3>
-                    <p>Our team crafts detailed architectural and interior plans.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-num">03</div>
-                    <h3>Build</h3>
-                    <p>Master tradesmen execute the design with precision.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-num">04</div>
-                    <h3>Reveal</h3>
-                    <p>We hand over your beautifully transformed space.</p>
-                </div>
+    <!-- The Bespoke Process -->
+    <section id="bespoke" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal-up opacity-0">
+            <h2 class="text-4xl font-serif text-brand-accent mb-4">The Bespoke Process</h2>
+            <p class="text-gray-400 font-light">From concept to creation, a journey tailored specifically to you.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
+            <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-brand-accent/20"></div>
+            
+            <div class="relative text-center reveal-up opacity-0">
+                <div class="w-24 h-24 mx-auto bg-brand-dark border border-brand-accent/40 rounded-full flex items-center justify-center text-3xl font-serif text-brand-accent mb-6 relative z-10">01</div>
+                <h3 class="text-xl font-serif text-white mb-3">Consultation</h3>
+                <p class="text-sm text-gray-400 font-light">Discuss your vision, budget, and design inspirations with our experts.</p>
+            </div>
+            <div class="relative text-center reveal-up opacity-0 delay-100">
+                <div class="w-24 h-24 mx-auto bg-brand-dark border border-brand-accent/40 rounded-full flex items-center justify-center text-3xl font-serif text-brand-accent mb-6 relative z-10">02</div>
+                <h3 class="text-xl font-serif text-white mb-3">Sourcing</h3>
+                <p class="text-sm text-gray-400 font-light">We hand-select the finest ethically sourced gems for your approval.</p>
+            </div>
+            <div class="relative text-center reveal-up opacity-0 delay-200">
+                <div class="w-24 h-24 mx-auto bg-brand-dark border border-brand-accent/40 rounded-full flex items-center justify-center text-3xl font-serif text-brand-accent mb-6 relative z-10">03</div>
+                <h3 class="text-xl font-serif text-white mb-3">Crafting</h3>
+                <p class="text-sm text-gray-400 font-light">Our artisans meticulously forge your piece with uncompromising detail.</p>
+            </div>
+            <div class="relative text-center reveal-up opacity-0 delay-300">
+                <div class="w-24 h-24 mx-auto bg-brand-dark border border-brand-accent/40 rounded-full flex items-center justify-center text-3xl font-serif text-brand-accent mb-6 relative z-10">04</div>
+                <h3 class="text-xl font-serif text-white mb-3">Reveal</h3>
+                <p class="text-sm text-gray-400 font-light">The final masterpiece is presented, ready to be worn and cherished.</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="section section-light">
-        <div class="container fade-in">
-            <h2 class="text-center">Client Stories</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="quote-mark">"</div>
-                    <p class="testimonial-text">Ironwood transformed our outdated first floor into a bright, modern masterpiece. Their attention to detail and communication throughout the build was unmatched.</p>
-                    <p class="testimonial-author">— Homeowner, Denver, CO</p>
+    <section class="py-24 bg-brand-light text-brand-dark px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-serif text-center mb-16">Client Experiences</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 shadow-sm reveal-up opacity-0">
+                    <div class="text-brand-accent text-2xl mb-4">★★★★★</div>
+                    <p class="font-serif text-lg mb-6 leading-relaxed italic">"The bespoke process was entirely flawless. They took my fragmented ideas and crafted an engagement ring that exceeded every expectation."</p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">— Groom-to-be, New York, NY</p>
                 </div>
-                <div class="testimonial-card">
-                    <div class="quote-mark">"</div>
-                    <p class="testimonial-text">From the initial design phase to the final walkthrough, the team was professional and respectful of our home. The custom kitchen cabinetry exceeded our expectations.</p>
-                    <p class="testimonial-author">— Homeowner, Boulder, CO</p>
+                <div class="bg-white p-10 shadow-sm reveal-up opacity-0 delay-100">
+                    <div class="text-brand-accent text-2xl mb-4">★★★★★</div>
+                    <p class="font-serif text-lg mb-6 leading-relaxed italic">"Aurelia's attention to detail and commitment to ethical sourcing made them the only choice for my anniversary gift."</p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">— Returning Client, Beverly Hills, CA</p>
                 </div>
-                <div class="testimonial-card">
-                    <div class="quote-mark">"</div>
-                    <p class="testimonial-text">Finding a contractor you can trust is difficult, but Ironwood delivered on every promise. Our primary bathroom is now our favorite room in the house.</p>
-                    <p class="testimonial-author">— Homeowner, Cherry Creek, CO</p>
+                <div class="bg-white p-10 shadow-sm reveal-up opacity-0 delay-200">
+                    <div class="text-brand-accent text-2xl mb-4">★★★★★</div>
+                    <p class="font-serif text-lg mb-6 leading-relaxed italic">"Stunning craftsmanship. The necklace I purchased is a true work of art that feels like an heirloom the moment you put it on."</p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">— Collector, London, UK</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form & Final CTA -->
-    <section class="section" id="contact">
-        <div class="container fade-in">
-            <div class="contact-container">
+    <!-- Final CTA & Form -->
+    <section id="contact" class="py-24 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-16 reveal-up opacity-0">
+            <h2 class="text-4xl md:text-5xl font-serif text-brand-accent mb-6">Begin Your Journey</h2>
+            <p class="text-gray-400 font-light text-lg">Schedule a private consultation to discuss your bespoke design or view our collection in person.</p>
+        </div>
+
+        <form class="space-y-6 reveal-up opacity-0 delay-100" id="contact-form">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <h2>Ready to elevate your home?</h2>
-                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Reach out today to schedule your complimentary consultation and discuss your upcoming project.</p>
-                    <p style="margin-bottom: 1rem;"><strong>Email:</strong> info@ironwoodremodeling.com</p>
-                    <p style="margin-bottom: 1rem;"><strong>Phone:</strong> 1-800-555-0198</p>
-                    <p><strong>Service Area:</strong> Premium residential neighborhoods nationwide.</p>
+                    <label for="name" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Full Name</label>
+                    <input type="text" id="name" class="w-full bg-transparent border-b border-gray-600 focus:border-brand-accent px-0 py-3 text-white outline-none transition-colors" required>
                 </div>
                 <div>
-                    <form id="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your interest. This is a demo form.');">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Full Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" required style="background-color: var(--color-bg);">
-                                <option value="" disabled selected>Project Type</option>
-                                <option value="kitchen">Kitchen Remodel</option>
-                                <option value="bathroom">Bathroom Remodel</option>
-                                <option value="whole-home">Whole-Home Renovation</option>
-                                <option value="exterior">Exterior / Addition</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Tell us about your vision..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-outline" style="width: 100%;">Submit Request</button>
-                    </form>
+                    <label for="email" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Email Address</label>
+                    <input type="email" id="email" class="w-full bg-transparent border-b border-gray-600 focus:border-brand-accent px-0 py-3 text-white outline-none transition-colors" required>
                 </div>
             </div>
-        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="phone" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Phone Number</label>
+                    <input type="tel" id="phone" class="w-full bg-transparent border-b border-gray-600 focus:border-brand-accent px-0 py-3 text-white outline-none transition-colors">
+                </div>
+                <div>
+                    <label for="inquiry" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Inquiry Type</label>
+                    <select id="inquiry" class="w-full bg-brand-dark border-b border-gray-600 focus:border-brand-accent px-0 py-3 text-white outline-none transition-colors">
+                        <option value="bespoke">Bespoke Design</option>
+                        <option value="collection">Collection Inquiry</option>
+                        <option value="appointment">Book Appointment</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="message" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Message</label>
+                <textarea id="message" rows="4" class="w-full bg-transparent border-b border-gray-600 focus:border-brand-accent px-0 py-3 text-white outline-none transition-colors resize-none"></textarea>
+            </div>
+            <div class="text-center pt-8">
+                <button type="submit" id="submit-btn" class="bg-brand-accent text-brand-dark px-10 py-4 text-sm font-medium tracking-widest uppercase hover:bg-white transition-colors duration-300 w-full md:w-auto">
+                    Book a Private Consultation
+                </button>
+            </div>
+        </form>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div>
-                <div class="footer-logo">IRONWOOD</div>
-                <p>Renovations Built to Last a Lifetime</p>
+    <footer class="bg-[#101213] py-12 px-6 border-t border-brand-accent/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-gray-500 font-light">
+            <div class="text-2xl font-serif text-brand-accent">Aurelia</div>
+            <div class="flex flex-col md:flex-row gap-4 md:gap-8 text-center">
+                <span>+1 (800) 555-0198</span>
+                <span>concierge@aureliafinejewelry.com</span>
+                <span>New York • Los Angeles • London</span>
             </div>
-            <div>
-                <p>&copy; 2026 Ironwood Remodeling Co. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-brand-accent transition-colors">Instagram</a>
+                <a href="#" class="hover:text-brand-accent transition-colors">Pinterest</a>
             </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 text-center text-xs text-gray-600 border-t border-gray-800 pt-8">
+            &copy; 2026 Aurelia Fine Jewelry. All rights reserved.
         </div>
     </footer>
 
-    <!-- JS -->
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-brand-accent text-4xl">&times;</button>
+        <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-[90vw] max-h-[90vh] object-contain">
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
